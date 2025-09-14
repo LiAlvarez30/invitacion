@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de la Suerte 🎲</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Pantalla del juego -->
+  <div id="game" class="container text-center">
+    <h1 class="mt-5">🎲 Bienvenida al Juego de la Suerte 🎲</h1>
+    <p class="lead">Elige un número del 1 al 20 y descubre tu destino...</p>
+    
+    <div class="row justify-content-center g-3 mt-4">
+      <!-- Botones del 1 al 20 -->
+      <script>
+        for (let i = 1; i <= 20; i++) {
+          document.write(`
+            <div class="col-3 col-sm-2 col-md-1">
+              <button class="btn btn-lg btn-light w-100" onclick="checkNumber(${i})">${i}</button>
+            </div>
+          `);
+        }
+      </script>
+    </div>
+    <p id="tryAgain" class="hidden mt-4 fw-bold text-warning">❌ Ese no es el número correcto... ¡intenta de nuevo!</p>
+  </div>
+
+  <!-- Pantalla del ganador -->
+  <div id="winner" class="hidden d-flex flex-column justify-content-center align-items-center text-center">
+    <canvas id="fireworks"></canvas>
+    <div class="lights"></div>
+    <div class="message shadow-lg">
+      🎉 <b>¡Felicidades!</b> 🎉 <br><br>
+      Has ganado dos entradas para ver a <b>Melendi</b> <br>
+      📅 16 de noviembre de 2025 <br>
+      📍 Movistar Arena, Buenos Aires <br><br>
+      💃🎶 ¡Nos espera una noche inolvidable! 🎶💃
+    </div>
+    <!-- Música de fondo -->
+    <audio id="music" loop>
+      <!-- Reemplaza la URL con un MP3 válido -->
+      <source src="https://youtu.be/QLAnZTNGsYE?si=D5qeu1wlv4EX1gLj" type="audio/mpeg">
+      Tu navegador no soporta audio.
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
